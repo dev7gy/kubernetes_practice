@@ -1,0 +1,26 @@
+prometheus:
+  prometheusSpec:
+    # 데이터 영속성 설정 (k3d의 local-path provisioner 사용)
+    storageSpec:
+      volumeClaimTemplate:
+        spec:
+          accessModes: ["ReadWriteOnce"]
+          resources:
+            requests:
+              storage: 10Gi
+    # 리소스 제한 (M4 24GB 사양 활용)
+    resources:
+      requests:
+        cpu: 500m
+        memory: 2Gi
+      limits:
+        cpu: 1000m
+        memory: 4Gi
+
+grafana:
+  # Grafana 데이터 영속성 설정
+  persistence:
+    enabled: true
+    size: 2Gi
+  # 초기 비밀번호 설정 (미설정 시 랜덤 생성)
+  adminPassword: "admin"
