@@ -40,5 +40,4 @@ kubectl run nginx --image=nginx
 ## Error from server (AlreadyExists): pods "nginx" already exists
 ```
 
-- chapter3_finish_p75
 
