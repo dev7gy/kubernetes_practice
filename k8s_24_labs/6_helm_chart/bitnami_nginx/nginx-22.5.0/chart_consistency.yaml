@@ -1,0 +1,51 @@
+ignore:
+  # Image parameters (except pullPolicy) are referenced indirectly through common.images.image helper
+  - image.registry
+  - image.repository
+  - image.tag
+  - image.digest
+  - image.pullSecrets
+  - cloneStaticSiteFromGit.image.registry
+  - cloneStaticSiteFromGit.image.repository
+  - cloneStaticSiteFromGit.image.tag
+  - cloneStaticSiteFromGit.image.digest
+  - cloneStaticSiteFromGit.image.pullSecrets
+  - metrics.image.registry
+  - metrics.image.repository
+  - metrics.image.tag
+  - metrics.image.digest
+  - metrics.image.pullSecrets
+  # Values used by common library helpers
+  - nameOverride
+  - fullnameOverride
+  - namespaceOverride
+  - kubeVersion
+  # Ingress API version used in conditional logic
+  - ingress.apiVersion
+
+ignoreChildren:
+  # Global values used by common library helpers
+  - global
+  # Diagnostic mode
+  - diagnosticMode.command
+  - diagnosticMode.args
+  # FIPS, security contexts, probes, and update strategy passed as complete objects
+  - fips
+  - podSecurityContext
+  - containerSecurityContext
+  - livenessProbe
+  - readinessProbe
+  - startupProbe
+  - updateStrategy
+  # HTTPRoute
+  - httpRoute.hostnames
+  - httpRoute.matches
+  # Clone static site from git
+  - cloneStaticSiteFromGit.fips
+  # Metrics
+  - metrics.fips
+  - metrics.securityContext
+  - metrics.livenessProbe
+  - metrics.readinessProbe
+  - metrics.startupProbe
+  - metrics.service.annotations
